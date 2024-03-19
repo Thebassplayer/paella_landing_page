@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto_Mono, Ruda } from "next/font/google";
 import "./globals.css";
+import { cx } from "@/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-rm",
+});
+
+const ruda = Ruda({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-rd",
+});
 
 export const metadata: Metadata = {
   title: "Paella",
@@ -16,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cx(roboto.variable, ruda.variable)}>{children}</body>
     </html>
   );
 }
